@@ -1,0 +1,40 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          TempSensorRead.out
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Should-Start:      mysql
+# Should-Stop:       mysql
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the daemon for TempSensorRead.out
+# Description:       starts the process TempSensorRead.out as daemon
+### END INIT INFO
+# Author: W.Kager kwo kwoqi@gmx.net
+#
+#
+DESC="TempSensorRead.out Reads Temperature Sensors and stores it into Database"
+DAEMON=/home/kagerwol/projects/tempSensorReadV2/tempSensorReadV2
+# Actions
+case "$1" in
+    start)
+        # START
+		cd /home/kagerwol/projects/tempSensorReadV2/
+		sudo ./tempSensorReadV2 asdaemon
+        ;;
+    stop)
+        # STOP
+		sudo kill -USR2 `sudo cat /var/run/tempSensorReadV2.pid`
+        ;;
+    restart)
+        # RESTART
+		sudo kill -USR2 `sudo cat /var/run/tempSensorReadV2.pid`
+		cd /home/kagerwol/projects/tempSensorReadV2/
+		sudo ./tempSensorReadV2 asdaemon
+        ;;
+    reload)
+        # Reload
+		#sudo kill -USR1 `sudo cat /var/run/UmlaufPumpe.pid`
+        ;;
+esac
+exit 0

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="bin">
+      <UniqueIdentifier>{5e9b2a2e-07b2-48ad-8e89-b16381d85b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{f6eb7548-d282-4fb6-8248-d16c6c437918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="make">
+      <UniqueIdentifier>{949ebe17-1567-4236-b7f6-08508bc6e312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="obj">
+      <UniqueIdentifier>{a4b7c9e5-9742-483b-9d31-f0f77d66b20a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="readme">
+      <UniqueIdentifier>{fdc3c9dc-e118-4ab3-8897-bfa595ec4711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{bd67a455-5dcb-4c87-b91a-126b6191dbfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{17a83a5c-196d-482d-93b1-c69e6e15b062}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\inc\KwoDbAccess.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\KwoPidFileHdl.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\SensorValues.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\TempSensorRead.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\TempSensorReadDefs.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\make\Makefile">
+      <Filter>make</Filter>
+    </None>
+    <None Include="..\Scripts\CreateSensorValues.sql">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\Scripts\TempSensorRead.bsh">
+      <Filter>Scripts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\KwoDbAccess.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\KwoPidFileHdl.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SensorValues.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TempSensorRead.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TempSensorReadMain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
