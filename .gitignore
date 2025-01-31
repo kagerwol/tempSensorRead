@@ -4,7 +4,6 @@
 .log
 .tlog
 .lastbuildstate
-.filters
 .json
 .vs/
 bin/
