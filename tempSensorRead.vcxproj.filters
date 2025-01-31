@@ -24,47 +24,47 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\inc\KwoDbAccess.h">
+    <ClInclude Include=".\inc\KwoDbAccess.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\KwoPidFileHdl.h">
+    <ClInclude Include=".\inc\KwoPidFileHdl.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\SensorValues.h">
+    <ClInclude Include=".\inc\SensorValues.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\TempSensorRead.h">
+    <ClInclude Include=".\inc\TempSensorRead.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\TempSensorReadDefs.h">
+    <ClInclude Include=".\inc\TempSensorReadDefs.h">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\make\Makefile">
+    <None Include=".\Scripts\TempSensorRead.bsh">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include=".\Scripts\CreateSensorValues.sql">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include=".\make\Makefile">
       <Filter>make</Filter>
     </None>
-    <None Include="..\Scripts\CreateSensorValues.sql">
-      <Filter>Scripts</Filter>
-    </None>
-    <None Include="..\Scripts\TempSensorRead.bsh">
-      <Filter>Scripts</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\KwoDbAccess.cpp">
+    <ClCompile Include=".\src\TempSensorReadMain.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\KwoPidFileHdl.cpp">
+    <ClCompile Include=".\src\TempSensorRead.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\SensorValues.cpp">
+    <ClCompile Include=".\src\SensorValues.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\TempSensorRead.cpp">
+    <ClCompile Include=".\src\KwoPidFileHdl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\TempSensorReadMain.cpp">
+    <ClCompile Include=".\src\KwoDbAccess.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
