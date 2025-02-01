@@ -1,9 +1,5 @@
 #include "TempSensorReadDefs.h"
 
-
-
-
-
 const char* PRGINIPATH = "/";
 // Some central defines
 const int SLEEPINGDELAYSEC = 10;                 // Sleeping Delay; In case of the delay timer is failed, this will be the cycle when it should come again
@@ -12,16 +8,12 @@ const int STILLALIVETIMESTAMP = 14401;           // Delay: Average after this ti
 const long long MAXNOROWSINDB = 100000;          // The number of rows (approximatly) we will keep in the database table; If this is exeeded the oldest rows will become deleted;
                                                  // For performance reasons this limit is not checked at every database insert, instead of it is checked time cyclic
                                                  // the real existing number of rows can exceed the number of the here specified limit- 
-
 const std::size_t RELEVANTSENSORNAMELEN = 12;
 const char* SENSORTYPE = "Temperature";
 const char* SENSORUNIT = "[Deg C]";
-
-
                                                                
 const char* PROGRAMVERSION = "2.0 (c) 2019-2023 W.Kager (kwo)"; // nomen est omen: a short text about program version and author
  
-
 #if defined(WIN32)
 const char* PIDFILEPATH = "C:\\TEMP\\";           // The Path for the Pid-file
 const char* TEMPSENSORBASEPATH = "C:\\TMEP\\";
@@ -76,7 +68,7 @@ void TempSensorRead::doCyclicRead(int theSignal)
           char sensorFile[256];
           char firstLine[1024];
           char secondLine[1024];
-          //syslog(LOG_NOTICE, "Try Sensor:%s", dirseaPtr->d_name);
+          // syslog(LOG_NOTICE, "Try Sensor:%s", dirseaPtr->d_name);
           sprintf(sensorFile, "%s/%s/w1_slave", TEMPSENSORBASEPATH, dirseaPtr->d_name);
           // syslog(LOG_NOTICE, "sensorFile:%s", sensorFile);
           std::ifstream sensorStream(sensorFile, std::ifstream::in);

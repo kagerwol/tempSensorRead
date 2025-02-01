@@ -73,6 +73,7 @@
     <ClInclude Include=".\inc\SensorValues.h" />
     <ClInclude Include=".\inc\TempSensorRead.h" />
     <ClInclude Include=".\inc\TempSensorReadDefs.h" />
+    <ClInclude Include="inc\KwoSensorCnt.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".\make\Makefile" />
@@ -85,6 +86,7 @@
     <ClCompile Include=".\src\SensorValues.cpp" />
     <ClCompile Include=".\src\TempSensorRead.cpp" />
     <ClCompile Include=".\src\TempSensorReadMain.cpp" />
+    <ClCompile Include="src\KwoSensorCnt.cpp" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <Link>

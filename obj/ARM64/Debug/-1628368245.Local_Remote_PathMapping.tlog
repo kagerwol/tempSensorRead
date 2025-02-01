@@ -5,6 +5,7 @@ C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\src\KwoPidFileHdl.cpp|/ho
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\src\SensorValues.cpp|/home/kagerwol/projects/tempSensorRead/src/SensorValues.cpp
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\src\TempSensorRead.cpp|/home/kagerwol/projects/tempSensorRead/src/TempSensorRead.cpp
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\src\TempSensorReadMain.cpp|/home/kagerwol/projects/tempSensorRead/src/TempSensorReadMain.cpp
+C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\src\KwoSensorCnt.cpp|/home/kagerwol/projects/tempSensorRead/src/KwoSensorCnt.cpp
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc\KwoDbAccess.h|/home/kagerwol/projects/tempSensorRead/inc/KwoDbAccess.h
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc|/home/kagerwol/projects/tempSensorRead/inc
 @C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc|@/home/kagerwol/projects/tempSensorRead/inc
@@ -12,6 +13,7 @@ C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc\KwoPidFileHdl.h|/home
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc\SensorValues.h|/home/kagerwol/projects/tempSensorRead/inc/SensorValues.h
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc\TempSensorRead.h|/home/kagerwol/projects/tempSensorRead/inc/TempSensorRead.h
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc\TempSensorReadDefs.h|/home/kagerwol/projects/tempSensorRead/inc/TempSensorReadDefs.h
+C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\inc\KwoSensorCnt.h|/home/kagerwol/projects/tempSensorRead/inc/KwoSensorCnt.h
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\make\Makefile|/home/kagerwol/projects/tempSensorRead/make/Makefile
 C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\make|/home/kagerwol/projects/tempSensorRead/make
 @C:\Users\kagerwol\source\repos\kagerwol\tempSensorRead\make|@/home/kagerwol/projects/tempSensorRead/make

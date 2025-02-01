@@ -79,3 +79,4 @@ const char THEDBSCHEMA[] = "umlaufpumpe";            // Database Schema
 #include "KwoPidFileHdl.h"
 #include "SensorValues.h"
 #include "TempSensorRead.h"
+#include "KwoSensorCnt.h"
