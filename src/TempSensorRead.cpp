@@ -12,7 +12,7 @@ const std::size_t RELEVANTSENSORNAMELEN = 12;
 const char* SENSORTYPE = "Temperature";
 const char* SENSORUNIT = "[Deg C]";
                                                                
-const char* PROGRAMVERSION = "2.0 (c) 2019-2023 W.Kager (kwo)"; // nomen est omen: a short text about program version and author
+const char* PROGRAMVERSION = "3.0 (c) 2019-2025 W.Kager (kwo)"; // nomen est omen: a short text about program version and author
  
 #if defined(WIN32)
 const char* PIDFILEPATH = "C:\\TEMP\\";           // The Path for the Pid-file
