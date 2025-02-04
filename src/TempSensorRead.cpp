@@ -57,11 +57,11 @@ void TempSensorRead::doCyclicRead(int theSignal)
 
       while ((dirseaPtr = readdir(dir)) != nullptr)
       {
-        long sensorno = -1;
-        long sensorFamily = -1;
+        unsigned long sensorno = 0xFFFFFFFF;
+        unsigned short sensorFamily = 0XFFFF;
         int lenScanf = 0;
         // syslog(LOG_NOTICE, "Found %s in directory", dirseaPtr->d_name);
-        lenScanf = sscanf(dirseaPtr->d_name, "28-%4x%8x", &sensorFamily, &sensorno);
+        lenScanf = sscanf(dirseaPtr->d_name, "28-%4hx%8lx", &sensorFamily, &sensorno);
         // syslog(LOG_NOTICE, "noScanf=%d no=%d 0x%08x", lenScanf, sensorno, sensorno);
         if (lenScanf == 2)
         {

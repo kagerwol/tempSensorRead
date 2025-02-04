@@ -13,6 +13,7 @@
 #include <fstream>                                     // For file Handling
 #include <list>                                        // For List Handling 
 #include <vector>                                      // For vector Handling
+#include <deque>                                       // For deque Handling
 #include <stdlib.h>                                    // For "exit()" Function Call
 #include <syslog.h>                                    // For syslog Messages
 #include <string>                                      // For std::string

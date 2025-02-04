@@ -68,19 +68,19 @@ SensorValues::SensorValues(const char* _sensorName, const char* _sensorType, con
 
 SensorValues::~SensorValues()
 {
-    size_t noTupels = m_ValueList.size();
-    SensorValueTupel* theValuesPtr = nullptr;
+    //size_t noTupels = m_ValueList.size();
+    //SensorValueTupel* theValuesPtr = nullptr;
 
-    while (noTupels)
-    {
-        noTupels--;
-        theValuesPtr = m_ValueList[noTupels];
-        if (theValuesPtr)
-        {
-            delete theValuesPtr;
-        }
-    }
-    m_ValueList.clear();
+    //while (noTupels)
+    //{
+    //    noTupels--;
+    //    theValuesPtr = m_ValueList[noTupels];
+    //    if (theValuesPtr)
+    //    {
+    //        delete theValuesPtr;
+    //    }
+    //}
+    //m_ValueList.clear();
 
 }
 
@@ -100,15 +100,13 @@ size_t SensorValues::StoreValueDB(double _value, sql::Connection* sqlCon)
         KwoDbAccess::getInstance()->IncInsertCnt();
         delete pstmt;
     }
-    m_ValueList.push_back(new SensorValueTupel(_value));
+    m_ValueList.push_back(SensorValueTupel(_value));
     return m_ValueList.size();
 }
 
 
 size_t SensorValues::StoreValue(const double _value, sql::Connection* sqlCon)
 {
-  size_t allValues = m_ValueList.size();
-
   if ((storeCounter % SENSORLOGCNT) == 0)
   {
     if (storeCounter == 0)
@@ -120,28 +118,27 @@ size_t SensorValues::StoreValue(const double _value, sql::Connection* sqlCon)
       syslog(LOG_NOTICE, "found Sensor %s %llu times (Actual %.3lf Dec C)", m_PhySensorName.c_str(), storeCounter, _value);
     }
   }
-
   storeCounter++;
 
-  if (allValues)
+  if (m_ValueList.empty())
   {
-    allValues--;
-    if (fabs(m_ValueList[allValues]->m_Value - _value) >= 0.01)
+    StoreValueDB(_value, sqlCon);
+    //syslog(LOG_NOTICE, "Sensor:%s Value=%+.3lf C", sensorName(), m_ValueList.back()->m_Value);
+  }
+  else
+  {
+    if (fabs(m_ValueList.back().m_Value - _value) >= 0.01)
     {
       StoreValueDB(_value, sqlCon);
       //syslog(LOG_NOTICE, "Sensor:%s Value=%+.3lf C", sensorName(), m_ValueList.back()->m_Value);
       if (m_ValueList.size() > MAXNOVALUESVECTOR)
       {
-        SensorValueTupel *first = m_ValueList.front();
-        m_ValueList.erase(m_ValueList.begin());
-        delete first;
+        m_ValueList.pop_front();
+        //SensorValueTupel *first = m_ValueList.front();
+        //m_ValueList.erase(m_ValueList.begin());
+        //delete first;
       }
     }
-  }
-  else
-  {
-    StoreValueDB(_value, sqlCon);
-    //syslog(LOG_NOTICE, "Sensor:%s Value=%+.3lf C", sensorName(), m_ValueList.back()->m_Value);
   }
 
   return m_ValueList.size();
