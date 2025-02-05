@@ -39,6 +39,9 @@
     <ClInclude Include=".\inc\TempSensorReadDefs.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="inc\KwoSensorCnt.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".\Scripts\TempSensorRead.bsh">
@@ -65,6 +68,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include=".\src\KwoDbAccess.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KwoSensorCnt.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

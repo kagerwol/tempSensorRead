@@ -26,7 +26,8 @@ protected:
   std::string m_LogSensorName;
   std::string m_SensorType;
   std::string m_SensorUnit;
-  std::vector<SensorValueTupel *> m_ValueList;
+  std::deque<SensorValueTupel> m_ValueList;
+  size_t storeCounter;
    
 
 public:
@@ -47,7 +48,7 @@ protected:
 class SensorValueList
 {
 protected:
-  std::vector<SensorValues *> m_TheSensors;
+  std::vector<SensorValues> m_TheSensors;
 
 public:
   SensorValueList();
