@@ -29,9 +29,9 @@ protected:
   std::deque<SensorValueTupel> m_ValueList;
   size_t storeCounter;
    
-
 public:
   SensorValues(const char *_sensorName, const char *_sensorType, const char *_sensorUnit, sql::Connection* sqlCon);
+  SensorValues(const SensorValues& that);
   virtual ~SensorValues();
   inline const char *phySensorName() { return m_PhySensorName.c_str(); };
   inline const char *logSensorName() { return m_LogSensorName.c_str(); };
@@ -42,6 +42,7 @@ public:
 
 protected:
   size_t StoreValueDB(double _value, sql::Connection* sqlCon);
+  void getLogSensorFromPhy(sql::Connection* sqlCon);
 };
 
 
