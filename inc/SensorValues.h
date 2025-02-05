@@ -1,4 +1,6 @@
 #pragma once
+
+
 class SensorValueTupel
 {
 public:
@@ -16,6 +18,16 @@ public:
   {
     gettimeofday(&m_TimeStamp, NULL);
   }
+
+  inline bool tupelTooOld()
+  {
+    struct timeval actTime;
+    struct timeval difTime;
+    timersub(&m_TimeStamp, &actTime, &difTime);
+    double dDifTime = (double)difTime.tv_sec + (double)difTime.tv_usec * 1.0e-6;
+    return (dDifTime >= MINSTOREINTERVALSEC);
+  }
+
 };
 
 

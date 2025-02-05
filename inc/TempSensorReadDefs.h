@@ -75,6 +75,8 @@ const char MYSQLHOSTPASS[] = "mySql@felix!!22";        // Database Password
 const char THEDBSCHEMA[] = "umlaufpumpe";            // Database Schema
 #endif
 
+// Minimal temperature store interval in [seconds] even no temperature change
+const static double MINSTOREINTERVALSEC = 4320.0;
 
 #include "KwoDbAccess.h"
 #include "KwoPidFileHdl.h"

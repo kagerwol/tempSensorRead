@@ -117,29 +117,29 @@ int SensorValues::StoreValueDB(double _value, sql::Connection* sqlCon)
 }
 
 // Stores a sensor value, logging it and storing it in the database if necessary.
-size_t SensorValues::StoreValue(const double _value, sql::Connection* sqlCon)
+size_t SensorValues::StoreValue(const double theMeasValue, sql::Connection* sqlCon)
 {
   // Log the sensor value at regular intervals.
   if ((storeCounter % SENSORLOGCNT) == 0)
   {
     if (storeCounter == 0)
     {
-      syslog(LOG_NOTICE, "found Sensor %s first time with %.3lf Deg C", m_PhySensorName.c_str(), _value);
+      syslog(LOG_NOTICE, "found Sensor %s first time with %.3lf Deg C", m_PhySensorName.c_str(), theMeasValue);
     }
     else
     {
-      syslog(LOG_NOTICE, "found Sensor %s %llu times (Actual %.3lf Dec C)", m_PhySensorName.c_str(), storeCounter, _value);
+      syslog(LOG_NOTICE, "found Sensor %s %llu times (Actual %.3lf Dec C)", m_PhySensorName.c_str(), storeCounter, theMeasValue);
     }
   }
 
   storeCounter++;
 
   // Store the value in the database if the value list is empty or if the value has changed significantly.
-  if (m_ValueList.empty() || fabs(m_ValueList.back().m_Value - _value) >= 0.01)
+  if (m_ValueList.empty() || fabs(m_ValueList.back().m_Value - theMeasValue) >= 0.01 || m_ValueList.back().tupelTooOld())
   {
-    StoreValueDB(_value, sqlCon);
+    StoreValueDB(theMeasValue, sqlCon);
     // Add the sensor value to the value list.
-    m_ValueList.push_back(SensorValueTupel(_value));
+    m_ValueList.push_back(SensorValueTupel(theMeasValue));
 
     if (m_ValueList.size() > MAXNOVALUESVECTOR)
     {
