@@ -95,8 +95,9 @@ SensorValues::~SensorValues()
 }
 
 // Stores a sensor value in the database and adds it to the value list.
-size_t SensorValues::StoreValueDB(double _value, sql::Connection* sqlCon)
+int SensorValues::StoreValueDB(double _value, sql::Connection* sqlCon)
 {
+  int retVal = -1;
   if (sqlCon != nullptr)
   {
     // Construct the SQL query to insert the sensor value into the database.
@@ -107,13 +108,12 @@ size_t SensorValues::StoreValueDB(double _value, sql::Connection* sqlCon)
     pstmt->setString(3, m_SensorType);
     pstmt->setString(4, m_SensorUnit);
     pstmt->setDouble(5, _value);
-    pstmt->executeUpdate();
+    retVal = pstmt->executeUpdate();
     KwoDbAccess::getInstance()->IncInsertCnt();
     delete pstmt;
   }
-  // Add the sensor value to the value list.
-  m_ValueList.push_back(SensorValueTupel(_value));
-  return m_ValueList.size();
+
+  return retVal;
 }
 
 // Stores a sensor value, logging it and storing it in the database if necessary.
@@ -131,24 +131,22 @@ size_t SensorValues::StoreValue(const double _value, sql::Connection* sqlCon)
       syslog(LOG_NOTICE, "found Sensor %s %llu times (Actual %.3lf Dec C)", m_PhySensorName.c_str(), storeCounter, _value);
     }
   }
+
   storeCounter++;
 
   // Store the value in the database if the value list is empty or if the value has changed significantly.
-  if (m_ValueList.empty())
+  if (m_ValueList.empty() || fabs(m_ValueList.back().m_Value - _value) >= 0.01)
   {
     StoreValueDB(_value, sqlCon);
-  }
-  else
-  {
-    if (fabs(m_ValueList.back().m_Value - _value) >= 0.01)
+    // Add the sensor value to the value list.
+    m_ValueList.push_back(SensorValueTupel(_value));
+
+    if (m_ValueList.size() > MAXNOVALUESVECTOR)
     {
-      StoreValueDB(_value, sqlCon);
-      if (m_ValueList.size() > MAXNOVALUESVECTOR)
-      {
-        m_ValueList.pop_front();
-      }
+      m_ValueList.pop_front();
     }
   }
+
 
   return m_ValueList.size();
 }
@@ -169,7 +167,7 @@ SensorValueList::~SensorValueList()
 size_t SensorValueList::StoreValue(const char* _sensorName, double _value, sql::Connection* sqlCon)
 {
   // Iterate through the list of sensors to find the matching sensor.
-  for (auto aSensor : m_TheSensors)
+  for (auto& aSensor : m_TheSensors)
   {
     if (strcmp(_sensorName, aSensor.phySensorName()) == 0)
     {

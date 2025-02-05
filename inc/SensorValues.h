@@ -41,7 +41,7 @@ public:
   
 
 protected:
-  size_t StoreValueDB(double _value, sql::Connection* sqlCon);
+  int StoreValueDB(double _value, sql::Connection* sqlCon);
   void getLogSensorFromPhy(sql::Connection* sqlCon);
 };
 
